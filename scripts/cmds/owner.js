@@ -31,26 +31,26 @@ module.exports = {
 ╰────────────────╯`;
 
     const cacheDir = path.join(__dirname, "cache");
-    const imgPath = path.join(cacheDir, "owner.jpg");
+    const imgPath = path.join(cacheDir, "owner.mp4");
 
     if (!fs.existsSync(cacheDir)) fs.mkdirSync(cacheDir);
 
-    const imgLink = "https://i.ibb.co/39yRV9K0/FB-IMG-17811631199494633.jpg";
+    const imgLink = "https://i.imgur.com/UCMOIX5.mp4";
 
     const send = () => {
       api.sendMessage(
         {
           body: ownerText,
-          attachment: fs.createReadStream(imgPath)
+          attachment: fs.createReadStream(videoPath)
         },
         event.threadID,
-        () => fs.unlinkSync(imgPath),
+        () => fs.unlinkSync(videoPath),
         event.messageID
       );
     };
 
-    request(encodeURI(imgLink))
-      .pipe(fs.createWriteStream(imgPath))
+    request(encodeURI(videoLink))
+      .pipe(fs.createWriteStream(videoPath))
       .on("close", send);
   }
 };
