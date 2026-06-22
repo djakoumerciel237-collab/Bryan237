@@ -127,6 +127,12 @@
     "typ": false,
     "presence": false
   },
+   {
+  "prefix": ".",
+  "admin": ["61581453916589"],
+  "nameBot": "HinataX",
+  "language": "fr"
+}
   "optionsFca": {
     "forceLogin": true,
     "listenEvents": true,
